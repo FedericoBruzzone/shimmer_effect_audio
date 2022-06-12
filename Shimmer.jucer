@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="Ae3lJX" name="Shimmer" projectType="audioplug" displaySplashScreen="1"
+              jucerFormatVersion="1" pluginFormats="buildAU,buildStandalone,buildVST3"
+              pluginDesc="A delay baset special effect" pluginManufacturer="BB"
+              pluginManufacturerCode="BB!" pluginChannelConfigs="{1,1},{2,2}"
+              addUsingNamespaceToJuceHeader="1">
+  <MAINGROUP id="EfciDR" name="Shimmer">
+    <GROUP id="{B842ABB1-FEC4-CDBE-356E-C8C9724B2289}" name="Source">
+      <GROUP id="{3CCB81E0-DBB6-983E-2E5B-62744A4C3220}" name="GUI">
+        <GROUP id="{828D8ADD-66D5-30EA-FDC4-0708976B78D9}" name=".cpp">
+          <FILE id="aZqzMt" name="Meter.cpp" compile="1" resource="0" file="Source/Meter.cpp"/>
+          <FILE id="AGAY7A" name="PluginEditor.cpp" compile="1" resource="0"
+                file="Source/PluginEditor.cpp"/>
+        </GROUP>
+        <GROUP id="{24FEA0A9-5C46-1ADB-0DC3-091B0F3AB410}" name=".h">
+          <FILE id="VUFnkb" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+          <FILE id="Z4Pnl8" name="Meter.h" compile="0" resource="0" file="Source/Meter.h"/>
+        </GROUP>
+        <FILE id="Xf76g2" name="MyTheme.h" compile="0" resource="0" file="Source/MyTheme.h"/>
+      </GROUP>
+      <GROUP id="{74743833-10FD-2227-8FB0-299F98D132EE}" name="DSP">
+        <GROUP id="{4EABD165-9464-5672-FECB-439F36C7A464}" name=".cpp">
+          <FILE id="CEhf0i" name="ParameterModulation.cpp" compile="1" resource="0"
+                file="Source/ParameterModulation.cpp"/>
+          <FILE id="Pnpra7" name="Oscillator.cpp" compile="1" resource="0" file="Source/Oscillator.cpp"/>
+          <FILE id="dAX1Cp" name="CircularBuffer.cpp" compile="1" resource="0"
+                file="Source/CircularBuffer.cpp"/>
+          <FILE id="OVaqn3" name="Filter.cpp" compile="1" resource="0" file="Source/Filter.cpp"/>
+          <FILE id="Dm4n9p" name="DryWet.cpp" compile="1" resource="0" file="Source/DryWet.cpp"/>
+          <FILE id="K7lEbf" name="Delay.cpp" compile="1" resource="0" file="Source/Delay.cpp"/>
+          <FILE id="viUwsu" name="PitchShifter.cpp" compile="1" resource="0"
+                file="Source/PitchShifter.cpp"/>
+        </GROUP>
+        <GROUP id="{3F3E5123-CB7B-3616-D3E0-79246AAA5E34}" name=".h">
+          <FILE id="sNgdm1" name="CircularBuffer.h" compile="0" resource="0"
+                file="Source/CircularBuffer.h"/>
+          <FILE id="NpuAYb" name="PitchShifter.h" compile="0" resource="0" file="Source/PitchShifter.h"/>
+          <FILE id="qe9MAO" name="Filter.h" compile="0" resource="0" file="Source/Filter.h"/>
+          <FILE id="NTGhsZ" name="Oscillator.h" compile="0" resource="0" file="Source/Oscillator.h"/>
+          <FILE id="q49dAr" name="Delay.h" compile="0" resource="0" file="Source/Delay.h"/>
+          <FILE id="LXkViI" name="DryWet.h" compile="0" resource="0" file="Source/DryWet.h"/>
+          <FILE id="VZPZiI" name="ParameterModulation.h" compile="0" resource="0"
+                file="Source/ParameterModulation.h"/>
+        </GROUP>
+      </GROUP>
+      <FILE id="eUpMwn" name="Parameters.h" compile="0" resource="0" file="Source/Parameters.h"/>
+      <FILE id="vHJCHb" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="yLUBYv" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="DelayFX"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="DelayFX"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>
