@@ -53,9 +53,7 @@ ShimmerAudioProcessor::ShimmerAudioProcessor()
     */
 }
 
-ShimmerAudioProcessor::~ShimmerAudioProcessor()
-{
-}
+ShimmerAudioProcessor::~ShimmerAudioProcessor() {}
 
 void ShimmerAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
@@ -100,6 +98,7 @@ void ShimmerAudioProcessor::releaseResources()
     delay.releaseResurces();
 
     masterReverb.reset();
+
     /*
     dryWet.releaseResources();
     delay.releaseResurces();
@@ -214,7 +213,6 @@ void ShimmerAudioProcessor::parameterChanged(const String& paramID, float newVal
 {
     if (paramID == NAME_DRYWET)
         dryWet.setDryWetRatio(newValue);
-
 
     if (paramID == NAME_PITCHSHIFTER1_SHIFT)
         pitchShifter1.setShift(newValue);

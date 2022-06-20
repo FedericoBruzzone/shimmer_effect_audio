@@ -18,7 +18,7 @@ namespace Delay
 
 		void moveTo(AudioBuffer<float>& buffer) override;
 
-		float delayTime = 0.5;
+		float delayTime = 0.5f;
 
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(DelayBlock)
 	};

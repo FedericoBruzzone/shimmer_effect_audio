@@ -62,7 +62,6 @@ private:
 
     Delay::AnalogDelay delay;
 
-
     dsp::Reverb masterReverb;
     dsp::Reverb::Parameters masterReverbParameters;
     //DryWet dryWet;

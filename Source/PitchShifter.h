@@ -79,7 +79,6 @@ namespace PitchShifter
 	protected:
 		void initialize() override;
 
-		void moveTo(AudioBuffer<float>& buffer) override;
 
 		//Filter::StereoFilter allPassFilter;
 		OwnedArray<Filter::StereoFilter> allPassFilters;

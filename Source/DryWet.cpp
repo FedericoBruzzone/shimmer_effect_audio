@@ -39,7 +39,7 @@ void DryWet::merge(AudioBuffer<float>& buffer)
 	}
 }
 
-void DryWet::setDryWetRatio(const float newValue)
+void DryWet::setDryWetRatio(float newValue)
 {
 	dryWetRatio = newValue;
 	//dryLevel = sqrt(1 - dryWetRatio);

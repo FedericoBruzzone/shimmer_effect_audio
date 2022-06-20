@@ -16,11 +16,11 @@ public:
 
 	void merge(AudioBuffer<float>& buffer);
 
-	void setDryWetRatio(const float newValue);
+	void setDryWetRatio(float newValue);
 
 private:
 
-	float dryWetRatio = 0.5;
+	float dryWetRatio = 0.5f;
 	//float dryLevel = 0;
 	//float wetLevel = 0;
 	SmoothedValue<float, ValueSmoothingTypes::Linear> dryLevel;

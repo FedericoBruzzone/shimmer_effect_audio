@@ -3,12 +3,13 @@
 
 
 CircularBuffer::CircularBuffer() {}
+
 CircularBuffer::~CircularBuffer() {}
 
 void CircularBuffer::prepareToPlay(double sampleRate, int maxNumSamples)
 {
 	sr = sampleRate;
-	memorySize = roundToInt(DEFAULT_CIRCULARBUFFER_MAX_TIME * sampleRate) + maxNumSamples;
+	memorySize = static_cast<int>(DEFAULT_CIRCULARBUFFER_MAX_TIME * sampleRate) + maxNumSamples; //roundToInt(DEFAULT_CIRCULARBUFFER_MAX_TIME * sampleRate) + maxNumSamples;
 	memory.setSize(2, memorySize);
 	initialize();
 }
