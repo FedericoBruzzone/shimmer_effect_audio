@@ -114,8 +114,16 @@ void ShimmerAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce
     //int chN = buffer.getNumChannels();
     //auto x = chN > 1 ?  
     
-    envelopeInput[0].set(juce::Decibels::gainToDecibels(buffer.getRMSLevel(0, 0, buffer.getNumSamples())));
-    envelopeInput[1].set(juce::Decibels::gainToDecibels(buffer.getRMSLevel(0, 0, buffer.getNumSamples())));
+    if (buffer.getNumChannels() != 1)
+    {
+        envelopeInput[0].set(juce::Decibels::gainToDecibels(buffer.getRMSLevel(0, 0, buffer.getNumSamples())));
+        envelopeInput[1].set(juce::Decibels::gainToDecibels(buffer.getRMSLevel(1, 0, buffer.getNumSamples())));
+    }
+    else
+    {
+        envelopeInput[0].set(juce::Decibels::gainToDecibels(buffer.getRMSLevel(0, 0, buffer.getNumSamples())));
+        envelopeInput[1].set(juce::Decibels::gainToDecibels(buffer.getRMSLevel(0, 0, buffer.getNumSamples())));
+    }
     
     block = dsp::AudioBlock<float>(buffer);
     dsp::ProcessContextReplacing<float> contextToUse = dsp::ProcessContextReplacing<float>(block);
