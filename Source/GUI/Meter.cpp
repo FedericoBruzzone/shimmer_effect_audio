@@ -1,14 +1,9 @@
 #include "Meter.h"
 
 // === Bulb === 
-Meter::Bulb::Bulb(const juce::Colour& c) : colour(c) 
-{
-}
+Meter::Bulb::Bulb(const juce::Colour& c) : colour(c) {}
 
-Meter::Bulb::~Bulb()
-{
-
-}
+Meter::Bulb::~Bulb() {}
 
 void Meter::Bulb::paint(juce::Graphics& g)
 {
@@ -72,7 +67,6 @@ void Meter::VerticalGradientMeterAtomic::paint(Graphics& g)
 
         auto peak = Decibels::gainToDecibels(envelopeSnapshot);
 
-        //auto barHeight = (H - 2) * (peak - DB_FLOOR) / abs(DB_FLOOR);
         auto barHeight = jmap(peak, DB_FLOOR, 0.0f, 0.0f, H - 2.0f);
         barHeight = jlimit(0.0f, H - 2.0f, barHeight);
 
@@ -80,7 +74,6 @@ void Meter::VerticalGradientMeterAtomic::paint(Graphics& g)
         ColourGradient filler = ColourGradient(Colours::blue, 0, H, topColour, 0, 0, false);
         filler.addColour(0.8f, Colours::green);
 
-        //g.setColour(peak >= 0.0f ? Colours::red : Colours::blueviolet);
         g.setGradientFill(filler);
 
         g.fillRect(1.0f, H - 1.0f - barHeight, W - 2.0f, barHeight);
@@ -88,9 +81,7 @@ void Meter::VerticalGradientMeterAtomic::paint(Graphics& g)
 
 }
 
-void Meter::VerticalGradientMeterAtomic::resized()
-{
-}
+void Meter::VerticalGradientMeterAtomic::resized() {}
 
 void Meter::VerticalGradientMeterAtomic::connectTo(Atomic<float>& targetVariable)
 {
@@ -162,14 +153,9 @@ void Meter::VerticalDiscreteMeterAtomic::timerCallback()
 }
 
 // === Horizontal Meter ===
-Meter::HorizontalMeter::HorizontalMeter()
-{
-}
+Meter::HorizontalMeter::HorizontalMeter() {}
 
-Meter::HorizontalMeter::~HorizontalMeter()
-{
-
-}
+Meter::HorizontalMeter::~HorizontalMeter() {}
 
 void Meter::HorizontalMeter::paint(juce::Graphics& g)
 {
@@ -178,15 +164,13 @@ void Meter::HorizontalMeter::paint(juce::Graphics& g)
     g.setColour(juce::Colours::white.withBrightness(0.4f));
     g.fillRoundedRectangle(bounds, 5.f);
     g.setColour(juce::Colours::white);
-    //map level from -60.f / +6.f to 0 / widh
+
     const auto scaledX = juce::jmap(level, -60.f, +6.f, 0.f, static_cast<float>(getWidth()));
     g.fillRoundedRectangle(bounds.removeFromLeft(scaledX), 5.f);
 
 }
 
-void Meter::HorizontalMeter::resized()
-{
-}
+void Meter::HorizontalMeter::resized() {}
 
 void Meter::HorizontalMeter::setLevel(const float value) 
 { 
@@ -200,10 +184,7 @@ Meter::VerticalGradientMeter::VerticalGradientMeter(std::function<float()>&& val
     startTimerHz(24);
 }
 
-Meter::VerticalGradientMeter::~VerticalGradientMeter()
-{
-
-}
+Meter::VerticalGradientMeter::~VerticalGradientMeter() {}
 
 void Meter::VerticalGradientMeter::paint(juce::Graphics& g)
 {
@@ -244,9 +225,7 @@ Meter::VerticalDiscreteMeter::VerticalDiscreteMeter(std::function<float()>&& val
     startTimerHz(24);
 }
 
-Meter::VerticalDiscreteMeter::~VerticalDiscreteMeter()
-{
-}
+Meter::VerticalDiscreteMeter::~VerticalDiscreteMeter() {}
 
 void Meter::VerticalDiscreteMeter::paint(juce::Graphics& g)
 {

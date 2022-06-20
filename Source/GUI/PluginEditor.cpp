@@ -18,7 +18,7 @@
 */
 
 //[Headers] You can add your own extra header files here...
-#include "Parameters.h"
+#include "../Parameters.h"
 //[/Headers]
 
 #include "PluginEditor.h"
@@ -858,4 +858,3 @@ END_JUCER_METADATA
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
-

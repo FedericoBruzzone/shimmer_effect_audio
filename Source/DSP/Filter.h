@@ -1,9 +1,10 @@
 #pragma once
 #include <JuceHeader.h>
-#include "Parameters.h"
+#include "../Parameters.h"
 
 namespace Filter
 {
+	// === ReleaseFilter ===
 	class ReleaseFilter
 	{
 	public:
@@ -28,6 +29,7 @@ namespace Filter
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ReleaseFilter)
 	};
 
+	// === ReleaseFilter ===
 	class StereoFilter
 	{
 	public:

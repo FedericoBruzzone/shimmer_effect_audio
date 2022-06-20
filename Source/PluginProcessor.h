@@ -1,16 +1,15 @@
 #pragma once
 #include <JuceHeader.h>
-#include "DryWet.h"
-#include "Delay.h"
-#include "Oscillator.h"
-#include "ParameterModulation.h"
-#include "PitchShifter.h"
+#include "DSP/DryWet.h"
+#include "DSP/Delay.h"
+#include "DSP/Oscillator.h"
+#include "DSP/ParameterModulation.h"
+#include "DSP/PitchShifter.h"
 
 class ShimmerAudioProcessor  
     : public juce::AudioProcessor, public AudioProcessorValueTreeState::Listener
 {
 public:
-    //==============================================================================
     ShimmerAudioProcessor();
     ~ShimmerAudioProcessor() override;
 
@@ -38,7 +37,6 @@ public:
     void getStateInformation(juce::MemoryBlock& destData) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
 
-    //Atomic<float> envelope;
     Atomic<float> envelopeInput[2];
     Atomic<float> envelopeOutput[2];
     
@@ -50,7 +48,6 @@ private:
 
     dsp::ProcessSpec dspProcessSpec;
     dsp::AudioBlock<float> block;
-    //dsp::ProcessContextReplacing<float> contextToUse = dsp::ProcessContextReplacing<float>(block);
 
     DryWet dryWet;
     DryWet dryWetPitch;
@@ -58,23 +55,12 @@ private:
     PitchShifter::PitchShifterAllPass pitchShifter2;
 
     dsp::Reverb branchReverb;
-    dsp::Reverb::Parameters branchReverbParameters; // using juce::Reverb::Parameters
+    dsp::Reverb::Parameters branchReverbParameters; 
 
     Delay::AnalogDelay delay;
 
     dsp::Reverb masterReverb;
     dsp::Reverb::Parameters masterReverbParameters;
-    //DryWet dryWet;
-    //Delay::DelayBlock delay;
-    //Delay::AnalogDelay delay;
-
-    /*
-    Delay::ModDelay delay;
-    Oscillator::NaiveOscillator LFO;
-    ParameterModulation timeAdapter;
-
-    AudioBuffer<float> modulationSignal;
-    */
-
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ShimmerAudioProcessor)
 };

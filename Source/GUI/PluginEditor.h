@@ -21,7 +21,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include <JuceHeader.h>
-#include "PluginProcessor.h"
+#include "../PluginProcessor.h"
 #include "MyTheme.h"
 #include "Meter.h"
 
@@ -95,4 +95,3 @@ private:
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
-

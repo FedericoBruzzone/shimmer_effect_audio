@@ -7,6 +7,7 @@
 
 namespace Meter
 {
+    // === Bulb ===
     class Bulb : public juce::Component
     {
     public:
@@ -24,6 +25,7 @@ namespace Meter
         juce::Colour colour{};
     };
 
+    // === VerticalGradientMeterAtomic ===
     class VerticalGradientMeterAtomic
     : public Component, public Timer
     {
@@ -49,6 +51,7 @@ namespace Meter
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VerticalGradientMeterAtomic);
     };
 
+    // === VerticalDiscreteMeterAtomic ===
     class VerticalDiscreteMeterAtomic
         : public juce::Component, public juce::Timer
     {
@@ -71,7 +74,8 @@ namespace Meter
         juce::ColourGradient gradient{};
         const int totalNumberOfBulbs = 15;
     };
-
+    
+    // === HorizontalMeter ===
     class HorizontalMeter : public juce::Component
     {
     public:
@@ -87,6 +91,7 @@ namespace Meter
         float level = -60.f;
     };
 
+    // === VerticalGradientMeter ===
     class VerticalGradientMeter : public juce::Component, public juce::Timer
     {
     public:
@@ -105,6 +110,7 @@ namespace Meter
         juce::ColourGradient gradient{};
     };
    
+    // === VerticalDiscreteMeter ===
     class VerticalDiscreteMeter : public juce::Component, public juce::Timer
     {
     public:

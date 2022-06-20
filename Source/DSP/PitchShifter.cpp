@@ -1,7 +1,5 @@
 #include "PitchShifter.h"
 
-// ctrl k ctrl c - ctrl k ctrl u
-
 // === Pitch Shifter ===
 PitchShifter::PitchShifterBase::PitchShifterBase() {}
 PitchShifter::PitchShifterBase::~PitchShifterBase() {}
@@ -209,4 +207,3 @@ void PitchShifter::PitchShifterAllPass::processBlock(AudioBuffer<float>& buffer)
 	CircularBuffer::updateWriteHead(buffer.getNumSamples());
 
 }
-

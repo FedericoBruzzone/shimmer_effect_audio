@@ -8,40 +8,40 @@
   <MAINGROUP id="EfciDR" name="Shimmer">
     <GROUP id="{B842ABB1-FEC4-CDBE-356E-C8C9724B2289}" name="Source">
       <GROUP id="{3CCB81E0-DBB6-983E-2E5B-62744A4C3220}" name="GUI">
+        <FILE id="XDccQb" name="MyTheme.h" compile="0" resource="0" file="Source/GUI/MyTheme.h"/>
         <GROUP id="{828D8ADD-66D5-30EA-FDC4-0708976B78D9}" name=".cpp">
-          <FILE id="aZqzMt" name="Meter.cpp" compile="1" resource="0" file="Source/Meter.cpp"/>
-          <FILE id="AGAY7A" name="PluginEditor.cpp" compile="1" resource="0"
-                file="Source/PluginEditor.cpp"/>
+          <FILE id="Jj4gB2" name="PluginEditor.cpp" compile="1" resource="0"
+                file="Source/GUI/PluginEditor.cpp"/>
+          <FILE id="ZmrHbn" name="Meter.cpp" compile="1" resource="0" file="Source/GUI/Meter.cpp"/>
         </GROUP>
         <GROUP id="{24FEA0A9-5C46-1ADB-0DC3-091B0F3AB410}" name=".h">
-          <FILE id="VUFnkb" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
-          <FILE id="Z4Pnl8" name="Meter.h" compile="0" resource="0" file="Source/Meter.h"/>
+          <FILE id="L53BmX" name="PluginEditor.h" compile="0" resource="0" file="Source/GUI/PluginEditor.h"/>
+          <FILE id="ai7K20" name="Meter.h" compile="0" resource="0" file="Source/GUI/Meter.h"/>
         </GROUP>
-        <FILE id="Xf76g2" name="MyTheme.h" compile="0" resource="0" file="Source/MyTheme.h"/>
       </GROUP>
       <GROUP id="{74743833-10FD-2227-8FB0-299F98D132EE}" name="DSP">
         <GROUP id="{4EABD165-9464-5672-FECB-439F36C7A464}" name=".cpp">
-          <FILE id="CEhf0i" name="ParameterModulation.cpp" compile="1" resource="0"
-                file="Source/ParameterModulation.cpp"/>
-          <FILE id="Pnpra7" name="Oscillator.cpp" compile="1" resource="0" file="Source/Oscillator.cpp"/>
-          <FILE id="dAX1Cp" name="CircularBuffer.cpp" compile="1" resource="0"
-                file="Source/CircularBuffer.cpp"/>
-          <FILE id="OVaqn3" name="Filter.cpp" compile="1" resource="0" file="Source/Filter.cpp"/>
-          <FILE id="Dm4n9p" name="DryWet.cpp" compile="1" resource="0" file="Source/DryWet.cpp"/>
-          <FILE id="K7lEbf" name="Delay.cpp" compile="1" resource="0" file="Source/Delay.cpp"/>
-          <FILE id="viUwsu" name="PitchShifter.cpp" compile="1" resource="0"
-                file="Source/PitchShifter.cpp"/>
+          <FILE id="ZCsI5f" name="CircularBuffer.cpp" compile="1" resource="0"
+                file="Source/DSP/CircularBuffer.cpp"/>
+          <FILE id="G0a69F" name="Delay.cpp" compile="1" resource="0" file="Source/DSP/Delay.cpp"/>
+          <FILE id="xVa2il" name="DryWet.cpp" compile="1" resource="0" file="Source/DSP/DryWet.cpp"/>
+          <FILE id="g4Qmt8" name="Filter.cpp" compile="1" resource="0" file="Source/DSP/Filter.cpp"/>
+          <FILE id="HQnzYl" name="Oscillator.cpp" compile="1" resource="0" file="Source/DSP/Oscillator.cpp"/>
+          <FILE id="kwpHI0" name="ParameterModulation.cpp" compile="1" resource="0"
+                file="Source/DSP/ParameterModulation.cpp"/>
+          <FILE id="cAny2s" name="PitchShifter.cpp" compile="1" resource="0"
+                file="Source/DSP/PitchShifter.cpp"/>
         </GROUP>
         <GROUP id="{3F3E5123-CB7B-3616-D3E0-79246AAA5E34}" name=".h">
-          <FILE id="sNgdm1" name="CircularBuffer.h" compile="0" resource="0"
-                file="Source/CircularBuffer.h"/>
-          <FILE id="NpuAYb" name="PitchShifter.h" compile="0" resource="0" file="Source/PitchShifter.h"/>
-          <FILE id="qe9MAO" name="Filter.h" compile="0" resource="0" file="Source/Filter.h"/>
-          <FILE id="NTGhsZ" name="Oscillator.h" compile="0" resource="0" file="Source/Oscillator.h"/>
-          <FILE id="q49dAr" name="Delay.h" compile="0" resource="0" file="Source/Delay.h"/>
-          <FILE id="LXkViI" name="DryWet.h" compile="0" resource="0" file="Source/DryWet.h"/>
-          <FILE id="VZPZiI" name="ParameterModulation.h" compile="0" resource="0"
-                file="Source/ParameterModulation.h"/>
+          <FILE id="n2JL5A" name="CircularBuffer.h" compile="0" resource="0"
+                file="Source/DSP/CircularBuffer.h"/>
+          <FILE id="MYQ55f" name="Delay.h" compile="0" resource="0" file="Source/DSP/Delay.h"/>
+          <FILE id="i6Xw9t" name="DryWet.h" compile="0" resource="0" file="Source/DSP/DryWet.h"/>
+          <FILE id="NfUwae" name="Filter.h" compile="0" resource="0" file="Source/DSP/Filter.h"/>
+          <FILE id="bETmTl" name="Oscillator.h" compile="0" resource="0" file="Source/DSP/Oscillator.h"/>
+          <FILE id="ADiIiZ" name="ParameterModulation.h" compile="0" resource="0"
+                file="Source/DSP/ParameterModulation.h"/>
+          <FILE id="XDNPk3" name="PitchShifter.h" compile="0" resource="0" file="Source/DSP/PitchShifter.h"/>
         </GROUP>
       </GROUP>
       <FILE id="eUpMwn" name="Parameters.h" compile="0" resource="0" file="Source/Parameters.h"/>

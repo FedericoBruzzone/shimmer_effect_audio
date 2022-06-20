@@ -40,6 +40,7 @@ Filter::StereoFilter::StereoFilter()
 	for (int f = 0; f < 2; ++f)
 		iirFilters.add(new IIRFilter());
 }
+
 Filter::StereoFilter::~StereoFilter() {}
 
 void Filter::StereoFilter::prepareToPlay(double sr)
@@ -103,22 +104,9 @@ void Filter::StereoFilter::updateCoefficients()
 	case 3:
 		iirCoeffs = IIRCoefficients::makeBandPass(sampleRate, frequency, quality);
 		break;
-		/*case 4:
-			iirCoeffs = IIRCoefficients::makeLowShelf(sampleRate, frequency, quality);
-			break;
-		case 5:
-			iirCoeffs = IIRCoefficients::makeHighShelf(sampleRate, frequency, quality);
-			break;
-		case 6:
-			iirCoeffs = IIRCoefficients::makePeakFilter(sampleRate, frequency, quality);
-				break;
-		case 7:
-			iirCoeffs = IIRCoefficients::makeNotchFilter(sampleRate, frequency, quality);
-				break;*/
 	default:
 		break;
 	}
-
 
 	for (int f = iirFilters.size(); --f >= 0;)
 		iirFilters.getUnchecked(f)->setCoefficients(iirCoeffs);

@@ -1,6 +1,6 @@
 #pragma once
 #include <JuceHeader.h>
-#include "Parameters.h"
+#include "../Parameters.h"
 
 namespace Oscillator
 {
@@ -22,7 +22,7 @@ namespace Oscillator
 
 	private:
 
-		int waveform = 0; // Un enum sarebbe stato meglio, ma per ora teniamo le cose semplici
+		int waveform = 0; 
 
 		double samplePeriod = 1.0;
 		float currentPhase = 0.0f;
@@ -32,4 +32,3 @@ namespace Oscillator
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NaiveOscillator)
 	};
 }
-

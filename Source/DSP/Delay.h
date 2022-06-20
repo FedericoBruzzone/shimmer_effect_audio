@@ -1,10 +1,11 @@
 #pragma once
 #include <JuceHeader.h>
 #include "CircularBuffer.h"
-#include "Parameters.h"
+#include "../Parameters.h"
 
 namespace Delay 
 {
+	// === DelayBlock ===
 	class DelayBlock : public CircularBuffer
 	{
 	public:
@@ -23,6 +24,7 @@ namespace Delay
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(DelayBlock)
 	};
 
+	// === AnalogDelay ===
 	class AnalogDelay : public CircularBuffer
 	{
 	public:
@@ -47,6 +49,7 @@ namespace Delay
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AnalogDelay)
 	};
 
+	// === ModDelay ===
 	class ModDelay : public CircularBuffer
 	{
 	public:

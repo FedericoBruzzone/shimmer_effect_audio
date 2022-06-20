@@ -60,7 +60,6 @@
 #define DEFAULT_MODULATION_MAX_TIME 5.00f
 
 // Actual parameters
-//#define NAME_DRYWET "drywet"
 #define NAME_DELAY_TIME "delayTime"
 #define NAME_DELAY_FEEDBACK "delayFeedback"
 #define NAME_LFO_FREQENCY "lfoFrequency"
@@ -89,29 +88,17 @@ namespace Parameters
 		params.push_back(std::make_unique<AudioParameterFloat>(NAME_SHIMMER_BRANCH_DAMPING, "Branch Reverb Damping", 0.0f, 1.0f, DEFAULT_SHIMMER_BRANCH_DAMPING));
 		params.push_back(std::make_unique<AudioParameterFloat>(NAME_SHIMMER_BRANCH_WIDTH, "Branch Reverb Width", 0.0f, 1.0f, DEFAULT_SHIMMER_BRANCH_WIDTH));
 		params.push_back(std::make_unique<AudioParameterFloat>(NAME_SHIMMER_MASTER_ROOMSIZE, "Master Reverb Room Size (Tail)", 0.0f, 1.0f, DEFAULT_SHIMMER_MASTER_ROOMSIZE));
-		//params.push_back(std::make_unique<AudioParameterFloat>(NAME_DRYWETPITCH, "Dry/Wet pitch", 0.0f, 1.0f, DEFAULT_DRYWET));
-		
-		/*
-		params.push_back(std::make_unique<AudioParameterFloat>(NAME_DRYWET, "Dry/Wet", 0.0f, 1.0f, DEFAULT_DRYWET));
-		params.push_back(std::make_unique<AudioParameterFloat>(NAME_DELAY_TIME, "Delay time (s)", NormalisableRange<float>(0.0f, DEFAULT_CIRCULARBUFFER_MAX_TIME, 0.001f, 0.3f), DEFAULT_DELAY_TIME));
-		params.push_back(std::make_unique<AudioParameterFloat>(NAME_DELAY_FEEDBACK, "Feedback", 0.0f, 1.0f, DEFAULT_FEEDBACK));
-		params.push_back(std::make_unique<AudioParameterFloat>(NAME_LFO_FREQENCY, "LFO Freq (Hz)", NormalisableRange<float>(0.1f, 20.0f, 0.01f, 0.3f), DEFAULT_LFO_FREQENCY));
-		params.push_back(std::make_unique<AudioParameterFloat>(NAME_MODULATION_DELAY, "Mod amount (s)", NormalisableRange<float>(0.0f, DEFAULT_CIRCULARBUFFER_MAX_TIME / 2.0f, 0.001f), DEFAULT_MODULATION_DELAY));
-		params.push_back(std::make_unique<AudioParameterChoice>(NAME_LFO_WAVEFORM, "LFO shape", StringArray{ "Sin", "Tri", "Saw up", "Saw down" }, DEFAULT_LFO_WAVEFORM));
-		*/
 		
 		return {params.begin(), params.end()};
 	}
 
-	//void initializeParameters(AudioProcessorValueTreeState& parameters, AudioProcessorValueTreeState::Listener& this1)
-	//{
-	//	parameters.addParameterListener(NAME_DRYWET, &this1);
-	//	parameters.addParameterListener(NAME_SHIMMER_DELAY_FEEDBACK, &this1);
-	//	parameters.addParameterListener(NAME_SHIMMER_BRANCH_ROOMSIZE, &this1);
-	//	parameters.addParameterListener(NAME_SHIMMER_BRANCH_DAMPING, &this1);
-	//	parameters.addParameterListener(NAME_SHIMMER_BRANCH_WIDTH, &this1);
-	//	//parameters.addParameterListener(NAME_DRYWETPITCH, this);
-	//	//parameters.addParameterListener(NAME_PITCHSHIFTER, this);
-	//	//parameters.addParameterListener(NAME_PITCHSHIFTER2, this);
-	//}
+	// === TODO ===
+	/*void initializeParameters(AudioProcessorValueTreeState& parameters, AudioProcessorValueTreeState::Listener& vts)
+	{
+		parameters.addParameterListener(NAME_DRYWET, &vts);
+		parameters.addParameterListener(NAME_SHIMMER_DELAY_FEEDBACK, &vts);
+		parameters.addParameterListener(NAME_SHIMMER_BRANCH_ROOMSIZE, &vts);
+		parameters.addParameterListener(NAME_SHIMMER_BRANCH_DAMPING, &vts);
+		parameters.addParameterListener(NAME_SHIMMER_BRANCH_WIDTH, &vts);
+	}*/
 }

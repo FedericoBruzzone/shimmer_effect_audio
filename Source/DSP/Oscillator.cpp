@@ -56,7 +56,6 @@ float Oscillator::NaiveOscillator::getNextAudioSample()
 		break;
 	}
 
-	//phaseIncrement = frequency.isSmoothing() ? frequency.getNextValue() * samplePeriod : phaseIncrement;
 	phaseIncrement = frequency.getNextValue() * samplePeriod;
 	currentPhase += phaseIncrement;
 	currentPhase -= static_cast<int>(currentPhase);

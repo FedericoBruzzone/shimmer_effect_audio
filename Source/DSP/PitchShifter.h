@@ -1,11 +1,12 @@
 #pragma once
 #include <JuceHeader.h>
 #include "CircularBuffer.h"
-#include "Parameters.h"
 #include "Filter.h"
+#include "../Parameters.h"
 
 namespace PitchShifter
 {
+	// === PitchShifterBase ===
 	class PitchShifterBase : public CircularBuffer
 	{
 	public:
@@ -36,6 +37,7 @@ namespace PitchShifter
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PitchShifterBase)
 	};
 
+	// === PitchShifterHighPass ===
 	class PitchShifterHighPass : public CircularBuffer
 	{
 	public:
@@ -68,6 +70,7 @@ namespace PitchShifter
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PitchShifterHighPass)
 	};
 
+	// === PitchShifterAllPass ===
 	class PitchShifterAllPass : public PitchShifterHighPass
 	{
 	public:
@@ -79,16 +82,8 @@ namespace PitchShifter
 	protected:
 		void initialize() override;
 
-
-		//Filter::StereoFilter allPassFilter;
 		OwnedArray<Filter::StereoFilter> allPassFilters;
 
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PitchShifterAllPass)
 	};
 }
-
-
-
-
-
-

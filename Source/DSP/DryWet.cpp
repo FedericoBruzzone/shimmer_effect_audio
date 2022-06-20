@@ -26,15 +26,13 @@ void DryWet::setDry(const AudioBuffer<float>& buffer)
 
 void DryWet::merge(AudioBuffer<float>& buffer)
 {
-	//buffer.applyGain(wetLevel);
-	//drySignal.applyGain(dryLevel);
+	
 	auto numSamples = buffer.getNumSamples();
 	wetLevel.applyGain(buffer, numSamples);
 	dryLevel.applyGain(drySignal, numSamples);
 
 	for (int ch = buffer.getNumChannels(); --ch >= 0; )
 	{
-		//buffer.addFrom(ch, 0, drySignal, ch, 0, buffer.getNumSamples(), dryLevel);
 		buffer.addFrom(ch, 0, drySignal, ch, 0, numSamples);
 	}
 }
@@ -42,8 +40,6 @@ void DryWet::merge(AudioBuffer<float>& buffer)
 void DryWet::setDryWetRatio(float newValue)
 {
 	dryWetRatio = newValue;
-	//dryLevel = sqrt(1 - dryWetRatio);
-	//wetLevel = sqrt(dryWetRatio);
 	dryLevel.setTargetValue(sqrt(1 - dryWetRatio));
 	wetLevel.setTargetValue(sqrt(dryWetRatio));
 }
