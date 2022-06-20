@@ -174,6 +174,10 @@ PluginEditor::PluginEditor (ShimmerAudioProcessor& p, AudioProcessorValueTreeSta
 
 
     //[Constructor] You can add your own custom stuff here..
+    setResizable(true, true);
+    setResizeLimits(500, 500, 1390, 840);
+    setSize(1390, 840);
+    
     //[/Constructor]
 }
 
@@ -259,30 +263,30 @@ void PluginEditor::paint (juce::Graphics& g)
     }
 
     {
-        int x = 142, y = 0, width = 896, height = 352;
+        int x = 141, y = 0, width = 897, height = 350;
         juce::Colour fillColour1 = juce::Colour (0xffff9700), fillColour2 = juce::Colours::white;
         //[UserPaintCustomArguments] Customize the painting arguments here..
         //[/UserPaintCustomArguments]
         g.setGradientFill (juce::ColourGradient (fillColour1,
-                                             56.0f - 142.0f + x,
+                                             56.0f - 141.0f + x,
                                              static_cast<float> (-8) - 0.0f + y,
                                              fillColour2,
-                                             920.0f - 142.0f + x,
+                                             920.0f - 141.0f + x,
                                              296.0f - 0.0f + y,
                                              false));
         g.fillRect (x, y, width, height);
     }
 
     {
-        int x = 141, y = 356, width = 240, height = 484;
+        int x = 144, y = 356, width = 237, height = 483;
         juce::Colour fillColour1 = juce::Colour (0xffff9700), fillColour2 = juce::Colours::white;
         //[UserPaintCustomArguments] Customize the painting arguments here..
         //[/UserPaintCustomArguments]
         g.setGradientFill (juce::ColourGradient (fillColour1,
-                                             120.0f - 141.0f + x,
+                                             120.0f - 144.0f + x,
                                              232.0f - 356.0f + y,
                                              fillColour2,
-                                             696.0f - 141.0f + x,
+                                             696.0f - 144.0f + x,
                                              560.0f - 356.0f + y,
                                              false));
         g.fillRect (x, y, width, height);
@@ -337,7 +341,7 @@ void PluginEditor::paint (juce::Graphics& g)
     }
 
     {
-        int x = 385, y = 356, width = 332, height = 484;
+        int x = 385, y = 356, width = 332, height = 483;
         juce::Colour fillColour1 = juce::Colour (0xffff9700), fillColour2 = juce::Colours::white;
         //[UserPaintCustomArguments] Customize the painting arguments here..
         //[/UserPaintCustomArguments]
@@ -698,9 +702,9 @@ BEGIN_JUCER_METADATA
           hasStroke="0"/>
     <RECT pos="1044 0 204 840" fill="linear: 1136 640, 1400 848, 0=ffffffff, 1=fff1ff00"
           hasStroke="0"/>
-    <RECT pos="142 0 896 352" fill="linear: 56 -8, 920 296, 0=ffff9700, 1=ffffffff"
+    <RECT pos="141 0 897 350" fill="linear: 56 -8, 920 296, 0=ffff9700, 1=ffffffff"
           hasStroke="0"/>
-    <RECT pos="141 356 240 484" fill="linear: 120 232, 696 560, 0=ffff9700, 1=ffffffff"
+    <RECT pos="144 356 237 483" fill="linear: 120 232, 696 560, 0=ffff9700, 1=ffffffff"
           hasStroke="0"/>
     <TEXT pos="167 108 204 28" fill="solid: ff000000" hasStroke="0" text="Room Size"
           fontname="Lemon" fontsize="20.0" kerning="0.0" bold="0" italic="0"
@@ -714,7 +718,7 @@ BEGIN_JUCER_METADATA
     <TEXT pos="159 508 204 28" fill="solid: ff000000" hasStroke="0" text="Feedback"
           fontname="Lemon" fontsize="20.0" kerning="0.0" bold="0" italic="0"
           justification="36"/>
-    <RECT pos="385 356 332 484" fill="linear: 192 296, 568 664, 0=ffff9700, 1=ffffffff"
+    <RECT pos="385 356 332 483" fill="linear: 192 296, 568 664, 0=ffff9700, 1=ffffffff"
           hasStroke="0"/>
     <RECT pos="721 356 317 484" fill="linear: 112 16, 832 392, 0=ffff9700, 1=ffffffff"
           hasStroke="0"/>
@@ -858,3 +862,4 @@ END_JUCER_METADATA
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
+

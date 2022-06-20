@@ -23,7 +23,7 @@ public:
 
     const juce::String getName() const override { return JucePlugin_Name; }
 
-    bool acceptsMidi() const override { return false; }
+    bool acceptsMidi() const override  { return false; }
     bool producesMidi() const override { return false; }
     bool isMidiEffect() const override { return false; }
     double getTailLengthSeconds() const override { return 0.0; }
@@ -62,5 +62,6 @@ private:
     dsp::Reverb masterReverb;
     dsp::Reverb::Parameters masterReverbParameters;
     
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ShimmerAudioProcessor)
 };

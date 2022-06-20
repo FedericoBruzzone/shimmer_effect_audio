@@ -71,6 +71,7 @@ private:
     std::unique_ptr<SliderAttachment> masterRoomSizeAttachment;
 
     MyLookAndFeel myTheme;
+
     //[/UserVariables]
 
     //==============================================================================
@@ -95,3 +96,4 @@ private:
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
+
