@@ -47,6 +47,8 @@ namespace Filter
 
 		void reset();
 
+		float getFrequency();
+		
 	private:
 
 		void updateCoefficients();

@@ -168,7 +168,7 @@ void PitchShifter::PitchShifterHighPass::moveTo(AudioBuffer<float>& buffer)
 // === Pitch Shifter All Pass===
 PitchShifter::PitchShifterAllPass::PitchShifterAllPass()
 {
-	for (int f = 0; f < 5; ++f)
+	for (int f = 0; f <= 50; ++f)
 		allPassFilters.add(new Filter::StereoFilter());
 }
 
@@ -180,18 +180,32 @@ void PitchShifter::PitchShifterAllPass::initialize()
 
 	//allPassFilter.prepareToPlay(sr);
 	for (int f = allPassFilters.size(); --f >= 0;)
+	{
+		allPassFilters.getUnchecked(f)->setFrequency
+		(
+			allPassFilters.getUnchecked(f)->getFrequency() +
+			(f * 250)
+		);
+
 		allPassFilters.getUnchecked(f)->prepareToPlay(sr);
+	}
 }
 
 void PitchShifter::PitchShifterAllPass::processBlock(AudioBuffer<float>& buffer)
 {
+	//store
 	CircularBuffer::store(buffer);
-	PitchShifterHighPass::moveTo(buffer);
 
+	//all pass
 	//allPassFilters.processBlock(buffer, buffer.getNumSamples());
 	for (int f = allPassFilters.size(); --f >= 0;)
 		allPassFilters.getUnchecked(f)->processBlock(buffer, buffer.getNumSamples());
 
+	//output
+	PitchShifterHighPass::moveTo(buffer);
+
+
+	//update write head
 	CircularBuffer::updateWriteHead(buffer.getNumSamples());
 
 }

@@ -80,6 +80,11 @@ void Filter::StereoFilter::reset()
 		iirFilters.getUnchecked(f)->reset();
 }
 
+float Filter::StereoFilter::getFrequency()
+{
+	return frequency;
+}
+
 void Filter::StereoFilter::updateCoefficients()
 {
 	IIRCoefficients iirCoeffs;
