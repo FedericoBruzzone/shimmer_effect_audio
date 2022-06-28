@@ -36,8 +36,6 @@ ShimmerAudioProcessor::ShimmerAudioProcessor()
     masterReverbParameters.roomSize = DEFAULT_SHIMMER_MASTER_ROOMSIZE;
     masterReverb.setParameters(masterReverbParameters);
 
-    lastUIWidth = 400;
-    lastUIHeight = 200;
 }
 
 ShimmerAudioProcessor::~ShimmerAudioProcessor() {}

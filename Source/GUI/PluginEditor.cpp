@@ -177,7 +177,7 @@ PluginEditor::PluginEditor (ShimmerAudioProcessor& p, AudioProcessorValueTreeSta
     setResizable(true, true);
     setResizeLimits(500, 500, 1390, 840);
     setSize(1390, 840);
-    
+
     //[/Constructor]
 }
 
