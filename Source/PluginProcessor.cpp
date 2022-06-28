@@ -19,6 +19,8 @@ ShimmerAudioProcessor::ShimmerAudioProcessor()
     parameters.addParameterListener(NAME_SHIMMER_BRANCH_WIDTH, this);
     parameters.addParameterListener(NAME_SHIMMER_MASTER_ROOMSIZE, this);
 
+    //parameters.addParameterListener("PSP", this);
+
     dryWet.setDryWetRatio(DEFAULT_DRYWET);
     dryWetPitch.setDryWetRatio(DEFAULT_DRYWETPITCH);
     pitchShifter1.setShift(DEFAULT_PITCHSHIFTER1_SHIFT);
@@ -48,8 +50,8 @@ void ShimmerAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBloc
 
     dryWet.prepareToPlay(sampleRate, samplesPerBlock);
     dryWetPitch.prepareToPlay(sampleRate, samplesPerBlock);
-    pitchShifter1.prepareToPlay(sampleRate, samplesPerBlock);
-    pitchShifter2.prepareToPlay(sampleRate, samplesPerBlock);
+    pitchShifter1.prepare(sampleRate, samplesPerBlock);
+    pitchShifter2.prepare(sampleRate, samplesPerBlock);
      
     branchReverb.prepare(dspProcessSpec);
 
@@ -66,12 +68,12 @@ void ShimmerAudioProcessor::releaseResources()
 {
     dryWet.releaseResources();
     dryWetPitch.releaseResources();
-    pitchShifter1.releaseResurces();
-    pitchShifter2.releaseResurces();
+    pitchShifter1.releaseResources();
+    pitchShifter2.releaseResources();
 
     branchReverb.reset();
 
-    delay.releaseResurces();
+    delay.releaseResources();
 
     masterReverb.reset();
 
@@ -96,12 +98,12 @@ void ShimmerAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce
     dsp::ProcessContextReplacing<float> contextToUse = dsp::ProcessContextReplacing<float>(block);
 
     dryWet.setDry(buffer); 
-
-    pitchShifter1.processBlock(buffer);
+    
+    pitchShifter1.process(buffer);
     
     dryWetPitch.setDry(buffer);
 
-    pitchShifter2.processBlock(buffer); 
+    pitchShifter2.process(buffer); 
 
     dryWetPitch.merge(buffer);
 
@@ -123,7 +125,7 @@ void ShimmerAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce
         envelopeOutput[0].set(juce::Decibels::gainToDecibels(buffer.getRMSLevel(0, 0, buffer.getNumSamples())));
         envelopeOutput[1].set(juce::Decibels::gainToDecibels(buffer.getRMSLevel(0, 0, buffer.getNumSamples())));
     }
-   
+    
 }
 
 juce::AudioProcessorEditor* ShimmerAudioProcessor::createEditor()

@@ -13,13 +13,17 @@
 
 #define NAME_PITCHSHIFTER1_SHIFT "pitchShifter1"
 #define NAME_PITCHSHIFTER2_SHIFT "pitchShifter2"
-#define DEFAULT_PITCHSHIFTER1_SHIFT 2.0f 
-#define DEFAULT_PITCHSHIFTER2_SHIFT 2.0f
+//#define DEFAULT_PITCHSHIFTER1_SHIFT 2.0f 
+//#define DEFAULT_PITCHSHIFTER2_SHIFT 2.0f
+#define DEFAULT_PITCHSHIFTER1_SHIFT 10.0f 
+#define DEFAULT_PITCHSHIFTER2_SHIFT 10.0f
 
 #define NAME_PITCHSHIFTER2_ACTIVE "pitchShifter2Active"
 #define DEFAULT_PITCHSHIFTER2_ACTIVE 1
 
-#define DEFAULT_PITCHSHIFTER_SEMITONE 0.083333333f // (std::pow(2.0f, 1 / 12)) / 2
+//#define DEFAULT_PITCHSHIFTER_SEMITONE 0.083333333f // (std::pow(2.0f, 1 / 12)) / 2
+#define DEFAULT_PITCHSHIFTER_SEMITONE 0.83333333f // (std::pow(2.0f, 1 / 12)) / 2 * 10
+
 #define DEFAULT_PITCHSHIFTER_OVERLAP 0.1f
 
 #define NAME_SHIMMER_BRANCH_ROOMSIZE "branchRoomSize"
@@ -82,13 +86,15 @@ namespace Parameters
 
 		params.push_back(std::make_unique<AudioParameterFloat>(NAME_DRYWET, "Dry/Wet", 0.0f, 1.0f, DEFAULT_DRYWET));
 		params.push_back(std::make_unique<AudioParameterBool>(NAME_PITCHSHIFTER2_ACTIVE, "2nd PitchShifter Mute", DEFAULT_PITCHSHIFTER2_ACTIVE));
-		params.push_back(std::make_unique<AudioParameterFloat>(NAME_PITCHSHIFTER1_SHIFT, "PitchShifter1", NormalisableRange<float>(0.5f, 2.0f, DEFAULT_PITCHSHIFTER_SEMITONE), DEFAULT_PITCHSHIFTER1_SHIFT));
-		params.push_back(std::make_unique<AudioParameterFloat>(NAME_PITCHSHIFTER2_SHIFT, "PitchShifter2", NormalisableRange<float>(0.5f, 2.0f, DEFAULT_PITCHSHIFTER_SEMITONE), DEFAULT_PITCHSHIFTER2_SHIFT));
+		//params.push_back(std::make_unique<AudioParameterFloat>(NAME_PITCHSHIFTER1_SHIFT, "PitchShifter1", NormalisableRange<float>(0.5f, 2.0f, DEFAULT_PITCHSHIFTER_SEMITONE), DEFAULT_PITCHSHIFTER1_SHIFT));
+		//params.push_back(std::make_unique<AudioParameterFloat>(NAME_PITCHSHIFTER2_SHIFT, "PitchShifter2", NormalisableRange<float>(0.5f, 2.0f, DEFAULT_PITCHSHIFTER_SEMITONE), DEFAULT_PITCHSHIFTER2_SHIFT));
 		params.push_back(std::make_unique<AudioParameterFloat>(NAME_SHIMMER_DELAY_FEEDBACK, "Delay Feedback", 0.0f, 1.0f, DEFAULT_SHIMMER_DELAY_FEEDBACK));
 		params.push_back(std::make_unique<AudioParameterFloat>(NAME_SHIMMER_BRANCH_ROOMSIZE, "Branch Reverb Room Size (Tail)", 0.0f, 1.0f, DEFAULT_SHIMMER_BRANCH_ROOMSIZE));
 		params.push_back(std::make_unique<AudioParameterFloat>(NAME_SHIMMER_BRANCH_DAMPING, "Branch Reverb Damping", 0.0f, 1.0f, DEFAULT_SHIMMER_BRANCH_DAMPING));
 		params.push_back(std::make_unique<AudioParameterFloat>(NAME_SHIMMER_BRANCH_WIDTH, "Branch Reverb Width", 0.0f, 1.0f, DEFAULT_SHIMMER_BRANCH_WIDTH));
 		params.push_back(std::make_unique<AudioParameterFloat>(NAME_SHIMMER_MASTER_ROOMSIZE, "Master Reverb Room Size (Tail)", 0.0f, 1.0f, DEFAULT_SHIMMER_MASTER_ROOMSIZE));
+		params.push_back(std::make_unique<AudioParameterFloat>(NAME_PITCHSHIFTER1_SHIFT, "PitchShifter1", NormalisableRange<float>(0.0f, 10.0f, DEFAULT_PITCHSHIFTER_SEMITONE), DEFAULT_PITCHSHIFTER1_SHIFT));
+		params.push_back(std::make_unique<AudioParameterFloat>(NAME_PITCHSHIFTER2_SHIFT, "PitchShifter2", NormalisableRange<float>(0.0f, 10.0, DEFAULT_PITCHSHIFTER_SEMITONE), DEFAULT_PITCHSHIFTER2_SHIFT));
 		
 		return {params.begin(), params.end()};
 	}

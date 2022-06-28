@@ -4,6 +4,11 @@
 #include "Filter.h"
 #include "../Parameters.h"
 
+// For PitchShifterModBase
+#include "Delay.h"
+#include "Oscillator.h"
+#include "ParameterModulation.h"
+
 namespace PitchShifter
 {
 	// === PitchShifterBase ===
@@ -85,5 +90,36 @@ namespace PitchShifter
 		OwnedArray<Filter::StereoFilter> allPassFilters;
 
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PitchShifterAllPass)
+	};
+
+	// === PitchShifterModBase ===
+	class PitchShifterModBase
+	{
+	public:
+		PitchShifterModBase();
+		~PitchShifterModBase();
+
+		void PitchShifterModBase::prepare(double sampleRate, int samplesPerBlock);
+
+		void PitchShifterModBase::releaseResources();
+
+		void PitchShifterModBase::process(juce::AudioBuffer<float>& buffer);
+
+		void setShift(float newValue);
+
+		void setActive(float newValue);
+
+	protected:
+
+		void setParameter();
+
+		float shift = 10.f;
+		bool active = 1;
+
+		Delay::ModDelay delay;
+		Oscillator::NaiveOscillator LFO;
+		ParameterModulation timeAdapter;
+
+		AudioBuffer<float> modulationSignal;
 	};
 }

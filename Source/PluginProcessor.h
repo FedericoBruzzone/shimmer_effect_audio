@@ -51,8 +51,10 @@ private:
 
     DryWet dryWet;
     DryWet dryWetPitch;
-    PitchShifter::PitchShifterAllPass pitchShifter1;
-    PitchShifter::PitchShifterAllPass pitchShifter2;
+    //PitchShifter::PitchShifterAllPass pitchShifter1;
+    //PitchShifter::PitchShifterAllPass pitchShifter2;
+    PitchShifter::PitchShifterModBase pitchShifter1;
+    PitchShifter::PitchShifterModBase pitchShifter2;
 
     dsp::Reverb branchReverb;
     dsp::Reverb::Parameters branchReverbParameters; 

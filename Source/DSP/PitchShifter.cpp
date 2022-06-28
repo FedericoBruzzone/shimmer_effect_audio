@@ -80,7 +80,7 @@ void PitchShifter::PitchShifterBase::moveTo(AudioBuffer<float>& buffer)
 	}
 }
 
-// === Pitch Shifter High Pass===
+// === PitchShifterHighPass===
 PitchShifter::PitchShifterHighPass::PitchShifterHighPass() {}
 PitchShifter::PitchShifterHighPass::~PitchShifterHighPass() {}
 
@@ -165,7 +165,7 @@ void PitchShifter::PitchShifterHighPass::moveTo(AudioBuffer<float>& buffer)
 	}
 }
 
-// === Pitch Shifter All Pass===
+// === PitchShifterAllPass===
 PitchShifter::PitchShifterAllPass::PitchShifterAllPass()
 {
 	for (int f = 0; f <= 50; ++f)
@@ -203,4 +203,65 @@ void PitchShifter::PitchShifterAllPass::processBlock(AudioBuffer<float>& buffer)
 	//update write head
 	CircularBuffer::updateWriteHead(buffer.getNumSamples());
 
+}
+
+// === PitchShifterModBase===
+PitchShifter::PitchShifterModBase::PitchShifterModBase() {}
+PitchShifter::PitchShifterModBase::~PitchShifterModBase() {}
+
+void PitchShifter::PitchShifterModBase::prepare(double sampleRate, int samplesPerBlock)
+{
+	delay.prepareToPlay(sampleRate, samplesPerBlock);
+	LFO.prepareToPlay(sampleRate);
+	modulationSignal.setSize(2, samplesPerBlock);
+	timeAdapter.prepareToPlay(sampleRate);
+
+	PitchShifterModBase::setParameter();
+}
+
+void PitchShifter::PitchShifterModBase::releaseResources()
+{
+	delay.releaseResources();
+	modulationSignal.setSize(0, 0);
+}
+
+void PitchShifter::PitchShifterModBase::process(juce::AudioBuffer<float>& buffer)
+{
+	juce::ScopedNoDenormals noDenormals;
+	const auto numSamples = buffer.getNumSamples();
+
+	LFO.getNextAudioBlock(modulationSignal, numSamples);
+
+	timeAdapter.processBlock(modulationSignal, numSamples);
+
+	delay.processBlock(buffer, modulationSignal);
+
+}
+
+void PitchShifter::PitchShifterModBase::setShift(float newValue)
+{
+	shift = newValue;
+	setParameter();
+}
+
+void PitchShifter::PitchShifterModBase::setParameter()
+{
+	LFO.setWaveform(3);
+	LFO.setFrequency(0.1f);
+	timeAdapter.setParameter(0.0f);
+	delay.setFeedback(0.0f);
+	timeAdapter.setModAmount(shift);
+
+	delay.setMaxTime(1.0f);
+}
+
+void PitchShifter::PitchShifterModBase::setActive(float newValue)
+{
+	active = newValue;
+
+	shift = active > 0.5f ?
+			10.0f :
+			0.0f;
+
+	setShift(shift);
 }

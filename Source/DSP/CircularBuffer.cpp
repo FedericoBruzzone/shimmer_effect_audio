@@ -1,5 +1,4 @@
 #include "CircularBuffer.h"
-#include "../Parameters.h"
 
 CircularBuffer::CircularBuffer() {}
 CircularBuffer::~CircularBuffer() {}
@@ -12,7 +11,7 @@ void CircularBuffer::prepareToPlay(double sampleRate, int maxNumSamples)
 	memory.setSize(2, memorySize);
 }
 
-void CircularBuffer::releaseResurces()
+void CircularBuffer::releaseResources()
 {
 	memory.setSize(0, 0);
 	memorySize = 0;

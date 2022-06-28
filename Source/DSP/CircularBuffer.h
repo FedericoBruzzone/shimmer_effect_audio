@@ -1,5 +1,7 @@
 #pragma once
 #include <JuceHeader.h>
+#include "../Parameters.h"
+
 
 class CircularBuffer
 {
@@ -9,7 +11,7 @@ public:
 
 	void prepareToPlay(double sampleRate, int maxNumSamples);
 
-	void releaseResurces();
+	void releaseResources();
 
 	void processBlock(AudioBuffer<float>& buffer);
 
