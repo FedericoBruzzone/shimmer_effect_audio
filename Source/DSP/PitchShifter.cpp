@@ -12,6 +12,7 @@ void PitchShifter::PitchShifterBase::setShift(float newValue)
 void PitchShifter::PitchShifterBase::initialize()
 {
 	setShift(shift);
+	CircularBuffer::setMaxTime(1.00f);
 }
 
 void PitchShifter::PitchShifterBase::setActive(float newValue)
@@ -91,6 +92,7 @@ void PitchShifter::PitchShifterHighPass::setShift(float newValue)
 void PitchShifter::PitchShifterHighPass::initialize()
 {
 	setShift(shift);
+	CircularBuffer::setMaxTime(1.00f);
 	highPassFilter.setType(2);
 	highPassFilter.setFrequency(250);
 	highPassFilter.prepareToPlay(sr);
@@ -175,7 +177,7 @@ PitchShifter::PitchShifterAllPass::~PitchShifterAllPass() {}
 void PitchShifter::PitchShifterAllPass::initialize()
 {
 	setShift(shift);
-
+	CircularBuffer::setMaxTime(1.00f);
 	//allPassFilter.prepareToPlay(sr);
 	for (int f = allPassFilters.size(); --f >= 0;)
 	{

@@ -12,6 +12,7 @@ void Delay::DelayBlock::setTime(float newValue)
 void Delay::DelayBlock::initialize()
 {
 	setTime(delayTime);
+	CircularBuffer::setMaxTime(5.00f);
 }
 
 void Delay::DelayBlock::moveTo(AudioBuffer<float>& buffer)
@@ -52,6 +53,7 @@ void Delay::AnalogDelay::setFeedback(float newValue)
 
 void Delay::AnalogDelay::initialize()
 {
+	CircularBuffer::setMaxTime(5.00f);
 	delayTime.reset(sr, DEFAULT_DELAY_TIME_SMOOTHING);
 	feedback.reset(sr, DEFAULT_DELAY_FEEDBACK_SMOOTHING);
 }
@@ -118,6 +120,7 @@ void Delay::ModDelay::processBlock(AudioBuffer<float>& buffer, AudioBuffer<float
 
 void Delay::ModDelay::initialize()
 {
+	CircularBuffer::setMaxTime(5.00f);
 	feedback.reset(sr, DEFAULT_DELAY_FEEDBACK_SMOOTHING);
 }
 

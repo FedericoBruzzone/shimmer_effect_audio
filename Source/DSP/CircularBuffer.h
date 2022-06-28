@@ -13,6 +13,8 @@ public:
 
 	void processBlock(AudioBuffer<float>& buffer);
 
+	void setMaxTime(float newValue);
+
 protected:
 	virtual void initialize() = 0;
 
@@ -22,6 +24,7 @@ protected:
 
 	void updateWriteHead(int leap);
 
+	float maxTime = DEFAULT_CIRCULARBUFFER_MAX_TIME;
 	AudioBuffer<float> memory;
 	int memorySize = 0;
 	int writeIndex = 0;

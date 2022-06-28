@@ -7,9 +7,9 @@ CircularBuffer::~CircularBuffer() {}
 void CircularBuffer::prepareToPlay(double sampleRate, int maxNumSamples)
 {
 	sr = sampleRate;
-	memorySize = static_cast<int>(DEFAULT_CIRCULARBUFFER_MAX_TIME * sampleRate) + maxNumSamples; 
-	memory.setSize(2, memorySize);
 	initialize();
+	memorySize = static_cast<int>(maxTime * sampleRate) + maxNumSamples; 
+	memory.setSize(2, memorySize);
 }
 
 void CircularBuffer::releaseResurces()
@@ -49,4 +49,9 @@ void CircularBuffer::updateWriteHead(int leap)
 {
 	writeIndex += leap;
 	writeIndex %= memorySize;
+}
+
+void CircularBuffer::setMaxTime(float newValue)
+{
+	maxTime = newValue;
 }
