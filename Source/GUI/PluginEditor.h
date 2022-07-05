@@ -68,7 +68,7 @@ private:
     std::unique_ptr<SliderAttachment> pitchShifter2ShiftAttachment;
     std::unique_ptr<ButtonAttachment> pitchShifter2ActiveAttachment;
     std::unique_ptr<SliderAttachment> dryWetAttachment;
-    std::unique_ptr<SliderAttachment> masterRoomSizeAttachment;
+    std::unique_ptr<SliderAttachment> delayTimeAttachment;
 
     MyLookAndFeel myTheme;
 
@@ -82,7 +82,7 @@ private:
     std::unique_ptr<juce::Slider> pitchShifter1Shift;
     std::unique_ptr<juce::Slider> pitchShifter2Shift;
     std::unique_ptr<juce::Slider> dryWet;
-    std::unique_ptr<juce::Slider> masterRoomSize;
+    std::unique_ptr<juce::Slider> delayTime;
     std::unique_ptr<juce::ToggleButton> pitchShifter2Active;
     std::unique_ptr<Meter::VerticalDiscreteMeterAtomic> outputVerticalDiscreteMeterAtomicLeft;
     std::unique_ptr<Meter::VerticalDiscreteMeterAtomic> outputVerticalDiscreteMeterAtomicRight;

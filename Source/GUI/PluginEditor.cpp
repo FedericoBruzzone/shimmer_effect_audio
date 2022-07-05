@@ -68,7 +68,7 @@ PluginEditor::PluginEditor (ShimmerAudioProcessor& p, AudioProcessorValueTreeSta
     delayFeedback->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 80, 20);
     delayFeedback->setColour (juce::Slider::textBoxTextColourId, juce::Colours::black);
 
-    delayFeedback->setBounds (192, 536, 136, 160);
+    delayFeedback->setBounds (192, 448, 136, 160);
 
     pitchShifter1Shift.reset (new juce::Slider ("Pitch Shifter 1 (semitone)"));
     addAndMakeVisible (pitchShifter1Shift.get());
@@ -97,14 +97,14 @@ PluginEditor::PluginEditor (ShimmerAudioProcessor& p, AudioProcessorValueTreeSta
 
     dryWet->setBounds (1080, 128, 136, 160);
 
-    masterRoomSize.reset (new juce::Slider ("Reverb Master Room Size"));
-    addAndMakeVisible (masterRoomSize.get());
-    masterRoomSize->setRange (0, 10, 0);
-    masterRoomSize->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    masterRoomSize->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 80, 20);
-    masterRoomSize->setColour (juce::Slider::textBoxTextColourId, juce::Colours::black);
+    delayTime.reset (new juce::Slider ("Delay Time"));
+    addAndMakeVisible (delayTime.get());
+    delayTime->setRange (0, 10, 0);
+    delayTime->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    delayTime->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 80, 20);
+    delayTime->setColour (juce::Slider::textBoxTextColourId, juce::Colours::black);
 
-    masterRoomSize->setBounds (1080, 528, 136, 160);
+    delayTime->setBounds (192, 664, 136, 160);
 
     pitchShifter2Active.reset (new juce::ToggleButton ("Pitch Shifter 2 Active"));
     addAndMakeVisible (pitchShifter2Active.get());
@@ -147,7 +147,7 @@ PluginEditor::PluginEditor (ShimmerAudioProcessor& p, AudioProcessorValueTreeSta
     pitchShifter2ShiftAttachment.reset(new SliderAttachment(valueTreeState, NAME_PITCHSHIFTER2_SHIFT, *pitchShifter2Shift));
     pitchShifter2ActiveAttachment.reset(new ButtonAttachment(valueTreeState, NAME_PITCHSHIFTER2_ACTIVE, *pitchShifter2Active));
     dryWetAttachment.reset(new SliderAttachment(valueTreeState, NAME_DRYWET, *dryWet));
-    masterRoomSizeAttachment.reset(new SliderAttachment(valueTreeState, NAME_SHIMMER_MASTER_ROOMSIZE, *masterRoomSize));
+    delayTimeAttachment.reset(new SliderAttachment(valueTreeState, NAME_DELAY_TIME, *delayTime));
 
     inputVerticalDiscreteMeterAtomicLeft->connectTo(p.envelopeInput[0]);
     inputVerticalDiscreteMeterAtomicRight->connectTo(p.envelopeInput[1]);
@@ -165,7 +165,7 @@ PluginEditor::PluginEditor (ShimmerAudioProcessor& p, AudioProcessorValueTreeSta
     pitchShifter2Active->getLookAndFeel().setColour(juce::ToggleButton::ColourIds::tickDisabledColourId, juce::Colours::black);
 
     dryWet->setLookAndFeel(&myTheme);
-    masterRoomSize->setLookAndFeel(&myTheme);
+    delayTime->setLookAndFeel(&myTheme);
 
 
     //[/UserPreSize]
@@ -192,7 +192,7 @@ PluginEditor::~PluginEditor()
     pitchShifter2ShiftAttachment.reset();
     pitchShifter2ActiveAttachment.reset();
     dryWetAttachment.reset();
-    masterRoomSizeAttachment.reset();
+    delayTimeAttachment.reset();
 
     branchRoomSize->setLookAndFeel(nullptr);
     branchDamping->setLookAndFeel(nullptr);
@@ -202,7 +202,7 @@ PluginEditor::~PluginEditor()
     //pitchShifter2Shift
     //pitchShifter2Active
     dryWet->setLookAndFeel(nullptr);
-    masterRoomSize->setLookAndFeel(nullptr);
+    delayTime->setLookAndFeel(nullptr);
     //[/Destructor_pre]
 
     branchRoomSize = nullptr;
@@ -212,7 +212,7 @@ PluginEditor::~PluginEditor()
     pitchShifter1Shift = nullptr;
     pitchShifter2Shift = nullptr;
     dryWet = nullptr;
-    masterRoomSize = nullptr;
+    delayTime = nullptr;
     pitchShifter2Active = nullptr;
     outputVerticalDiscreteMeterAtomicLeft = nullptr;
     outputVerticalDiscreteMeterAtomicRight = nullptr;
@@ -329,7 +329,7 @@ void PluginEditor::paint (juce::Graphics& g)
     }
 
     {
-        int x = 159, y = 508, width = 204, height = 28;
+        int x = 158, y = 431, width = 204, height = 28;
         juce::String text (TRANS("Feedback"));
         juce::Colour fillColour = juce::Colours::black;
         //[UserPaintCustomArguments] Customize the painting arguments here..
@@ -467,8 +467,8 @@ void PluginEditor::paint (juce::Graphics& g)
     }
 
     {
-        int x = 1044, y = 507, width = 204, height = 28;
-        juce::String text (TRANS("Reverb Room Size"));
+        int x = 158, y = 631, width = 204, height = 28;
+        juce::String text (TRANS("Time"));
         juce::Colour fillColour = juce::Colours::black;
         //[UserPaintCustomArguments] Customize the painting arguments here..
         //[/UserPaintCustomArguments]
@@ -715,7 +715,7 @@ BEGIN_JUCER_METADATA
     <TEXT pos="159 380 209 52" fill="solid: ff000000" hasStroke="0" text="Delay"
           fontname="Lemon" fontsize="35.0" kerning="0.0" bold="0" italic="0"
           justification="36"/>
-    <TEXT pos="159 508 204 28" fill="solid: ff000000" hasStroke="0" text="Feedback"
+    <TEXT pos="158 431 204 28" fill="solid: ff000000" hasStroke="0" text="Feedback"
           fontname="Lemon" fontsize="20.0" kerning="0.0" bold="0" italic="0"
           justification="36"/>
     <RECT pos="385 356 332 483" fill="linear: 192 296, 568 664, 0=ffff9700, 1=ffffffff"
@@ -746,7 +746,7 @@ BEGIN_JUCER_METADATA
     <TEXT pos="1044 107 204 28" fill="solid: ff000000" hasStroke="0" text="Mix"
           fontname="Lemon" fontsize="20.0" kerning="0.0" bold="0" italic="0"
           justification="36"/>
-    <TEXT pos="1044 507 204 28" fill="solid: ff000000" hasStroke="0" text="Reverb Room Size"
+    <TEXT pos="158 631 204 28" fill="solid: ff000000" hasStroke="0" text="Time"
           fontname="Lemon" fontsize="20.0" kerning="0.0" bold="0" italic="0"
           justification="36"/>
     <TEXT pos="1060 35 180 52" fill="solid: ff000000" hasStroke="0" text="Master"
@@ -809,7 +809,7 @@ BEGIN_JUCER_METADATA
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="Delay Feedback (s)" id="68f2f9a01198c5c9" memberName="delayFeedback"
-          virtualName="" explicitFocusOrder="0" pos="192 536 136 160" textboxtext="ff000000"
+          virtualName="" explicitFocusOrder="0" pos="192 448 136 160" textboxtext="ff000000"
           min="0.0" max="10.0" int="0.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
           needsCallback="0"/>
@@ -828,11 +828,11 @@ BEGIN_JUCER_METADATA
           min="0.0" max="10.0" int="0.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="Reverb Master Room Size" id="de50c78aed1205df" memberName="masterRoomSize"
-          virtualName="" explicitFocusOrder="0" pos="1080 528 136 160"
-          textboxtext="ff000000" min="0.0" max="10.0" int="0.0" style="RotaryVerticalDrag"
-          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="Delay Time" id="de50c78aed1205df" memberName="delayTime"
+          virtualName="" explicitFocusOrder="0" pos="192 664 136 160" textboxtext="ff000000"
+          min="0.0" max="10.0" int="0.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="0"/>
   <TOGGLEBUTTON name="Pitch Shifter 2 Active" id="d8e68c0eeff17294" memberName="pitchShifter2Active"
                 virtualName="" explicitFocusOrder="0" pos="968 736 40 32" txtcol="ff000000"
                 buttonText="" connectedEdges="0" needsCallback="0" radioGroupId="0"
