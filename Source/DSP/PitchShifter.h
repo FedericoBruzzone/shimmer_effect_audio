@@ -114,7 +114,7 @@ namespace PitchShifter
 		void setParameter();
 
 		float shift = 10.f;
-		bool active = 1;
+		bool active = 1 - MUTE_DEFAULT;
 
 		Delay::ModDelay delay;
 		Oscillator::NaiveOscillator LFO;

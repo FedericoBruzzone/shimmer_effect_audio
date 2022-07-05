@@ -21,6 +21,8 @@
 #define NAME_PITCHSHIFTER2_ACTIVE "pitchShifter2Active"
 #define DEFAULT_PITCHSHIFTER2_ACTIVE 1
 
+#define MUTE_DEFAULT   0
+
 //#define DEFAULT_PITCHSHIFTER_SEMITONE 0.083333333f // (std::pow(2.0f, 1 / 12)) / 2
 #define DEFAULT_PITCHSHIFTER_SEMITONE 0.83333333f // (std::pow(2.0f, 1 / 12)) / 2 * 10
 

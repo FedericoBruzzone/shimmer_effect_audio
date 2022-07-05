@@ -95,7 +95,7 @@ PluginEditor::PluginEditor (ShimmerAudioProcessor& p, AudioProcessorValueTreeSta
     dryWet->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 80, 20);
     dryWet->setColour (juce::Slider::textBoxTextColourId, juce::Colours::black);
 
-    dryWet->setBounds (1080, 128, 136, 160);
+    dryWet->setBounds (1072, 352, 136, 160);
 
     delayTime.reset (new juce::Slider ("Delay Time"));
     addAndMakeVisible (delayTime.get());
@@ -455,7 +455,7 @@ void PluginEditor::paint (juce::Graphics& g)
     }
 
     {
-        int x = 1044, y = 107, width = 204, height = 28;
+        int x = 1039, y = 327, width = 204, height = 28;
         juce::String text (TRANS("Mix"));
         juce::Colour fillColour = juce::Colours::black;
         //[UserPaintCustomArguments] Customize the painting arguments here..
@@ -743,7 +743,7 @@ BEGIN_JUCER_METADATA
     <TEXT pos="760 108 204 28" fill="solid: ff000000" hasStroke="0" text="Width"
           fontname="Lemon" fontsize="20.0" kerning="0.0" bold="0" italic="0"
           justification="36"/>
-    <TEXT pos="1044 107 204 28" fill="solid: ff000000" hasStroke="0" text="Mix"
+    <TEXT pos="1039 327 204 28" fill="solid: ff000000" hasStroke="0" text="Mix"
           fontname="Lemon" fontsize="20.0" kerning="0.0" bold="0" italic="0"
           justification="36"/>
     <TEXT pos="158 631 204 28" fill="solid: ff000000" hasStroke="0" text="Time"
@@ -824,7 +824,7 @@ BEGIN_JUCER_METADATA
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="Dry / Wet" id="6f67b48430b430a4" memberName="dryWet" virtualName=""
-          explicitFocusOrder="0" pos="1080 128 136 160" textboxtext="ff000000"
+          explicitFocusOrder="0" pos="1072 352 136 160" textboxtext="ff000000"
           min="0.0" max="10.0" int="0.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
           needsCallback="0"/>
