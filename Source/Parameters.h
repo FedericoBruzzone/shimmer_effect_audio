@@ -92,10 +92,11 @@ namespace Parameters
 		params.push_back(std::make_unique<AudioParameterFloat>(NAME_SHIMMER_BRANCH_ROOMSIZE, "Branch Reverb Room Size (Tail)", 0.0f, 1.0f, DEFAULT_SHIMMER_BRANCH_ROOMSIZE));
 		params.push_back(std::make_unique<AudioParameterFloat>(NAME_SHIMMER_BRANCH_DAMPING, "Branch Reverb Damping", 0.0f, 1.0f, DEFAULT_SHIMMER_BRANCH_DAMPING));
 		params.push_back(std::make_unique<AudioParameterFloat>(NAME_SHIMMER_BRANCH_WIDTH, "Branch Reverb Width", 0.0f, 1.0f, DEFAULT_SHIMMER_BRANCH_WIDTH));
-		params.push_back(std::make_unique<AudioParameterFloat>(NAME_SHIMMER_MASTER_ROOMSIZE, "Master Reverb Room Size (Tail)", 0.0f, 1.0f, DEFAULT_SHIMMER_MASTER_ROOMSIZE));
+		//params.push_back(std::make_unique<AudioParameterFloat>(NAME_SHIMMER_MASTER_ROOMSIZE, "Master Reverb Room Size (Tail)", 0.0f, 1.0f, DEFAULT_SHIMMER_MASTER_ROOMSIZE));
 		params.push_back(std::make_unique<AudioParameterFloat>(NAME_PITCHSHIFTER1_SHIFT, "PitchShifter1", NormalisableRange<float>(0.0f, 10.0f, DEFAULT_PITCHSHIFTER_SEMITONE), DEFAULT_PITCHSHIFTER1_SHIFT));
 		params.push_back(std::make_unique<AudioParameterFloat>(NAME_PITCHSHIFTER2_SHIFT, "PitchShifter2", NormalisableRange<float>(0.0f, 10.0, DEFAULT_PITCHSHIFTER_SEMITONE), DEFAULT_PITCHSHIFTER2_SHIFT));
-		
+		params.push_back(std::make_unique<AudioParameterFloat>(NAME_DELAY_TIME, "Delay Time", NormalisableRange<float>(0.0f, 1.0f, 0.01f), DEFAULT_DELAY_TIME));
+
 		return {params.begin(), params.end()};
 	}
 

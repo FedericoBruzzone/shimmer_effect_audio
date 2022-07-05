@@ -17,7 +17,8 @@ ShimmerAudioProcessor::ShimmerAudioProcessor()
     parameters.addParameterListener(NAME_SHIMMER_BRANCH_ROOMSIZE, this);
     parameters.addParameterListener(NAME_SHIMMER_BRANCH_DAMPING, this);
     parameters.addParameterListener(NAME_SHIMMER_BRANCH_WIDTH, this);
-    parameters.addParameterListener(NAME_SHIMMER_MASTER_ROOMSIZE, this);
+    //parameters.addParameterListener(NAME_SHIMMER_MASTER_ROOMSIZE, this);
+    parameters.addParameterListener(NAME_DELAY_TIME, this);
 
     //parameters.addParameterListener("PSP", this);
 
@@ -35,8 +36,8 @@ ShimmerAudioProcessor::ShimmerAudioProcessor()
     delay.setFeedback(DEFAULT_SHIMMER_DELAY_FEEDBACK);
 
 
-    masterReverbParameters.roomSize = DEFAULT_SHIMMER_MASTER_ROOMSIZE;
-    masterReverb.setParameters(masterReverbParameters);
+    //masterReverbParameters.roomSize = DEFAULT_SHIMMER_MASTER_ROOMSIZE;
+    //masterReverb.setParameters(masterReverbParameters);
 
 }
 
@@ -57,10 +58,10 @@ void ShimmerAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBloc
 
     delay.prepareToPlay(sampleRate, samplesPerBlock);
 
-    masterReverb.prepare(dspProcessSpec);
+    //masterReverb.prepare(dspProcessSpec);
 
     branchReverb.reset();
-    masterReverb.reset();
+    //masterReverb.reset();
 
 }
 
@@ -75,7 +76,7 @@ void ShimmerAudioProcessor::releaseResources()
 
     delay.releaseResources();
 
-    masterReverb.reset();
+    //masterReverb.reset();
 
 }
 
@@ -113,7 +114,7 @@ void ShimmerAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce
 
     dryWet.merge(buffer);
 
-    masterReverb.process(contextToUse);
+    //masterReverb.process(contextToUse);
     
     if (buffer.getNumChannels() != 1)
     {
@@ -183,11 +184,14 @@ void ShimmerAudioProcessor::parameterChanged(const String& paramID, float newVal
         branchReverb.setParameters(branchReverbParameters);
     }
 
-    if (paramID == NAME_SHIMMER_MASTER_ROOMSIZE)
+    if (paramID == NAME_DELAY_TIME)
+        delay.setTime(newValue);
+
+    /*if (paramID == NAME_SHIMMER_MASTER_ROOMSIZE)
     {
         masterReverbParameters.roomSize = newValue;
         masterReverb.setParameters(masterReverbParameters);
-    }
+    }*/
 
 }
 

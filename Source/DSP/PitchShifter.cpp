@@ -192,13 +192,12 @@ void PitchShifter::PitchShifterAllPass::processBlock(AudioBuffer<float>& buffer)
 	//store
 	CircularBuffer::store(buffer);
 
-	//all pass
-	for (int f = allPassFilters.size(); --f >= 0;)
-		allPassFilters.getUnchecked(f)->processBlock(buffer, buffer.getNumSamples());
-
 	//output
 	PitchShifterHighPass::moveTo(buffer);
 
+	//all pass
+	for (int f = allPassFilters.size(); --f >= 0;)
+		allPassFilters.getUnchecked(f)->processBlock(buffer, buffer.getNumSamples());
 
 	//update write head
 	CircularBuffer::updateWriteHead(buffer.getNumSamples());
@@ -263,5 +262,4 @@ void PitchShifter::PitchShifterModBase::setActive(float newValue)
 			10.0f :
 			0.0f;
 
-	setShift(shift);
 }
