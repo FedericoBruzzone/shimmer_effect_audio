@@ -30,7 +30,7 @@ void ParameterModulation::processBlock(AudioBuffer<float>& buffer, const int num
 		FloatVectorOperations::multiply(bufferData[ch], 0.5f, numSamples);
 	}
 
-	modAmount.applyGain(buffer, numSamples);
+	modAmount.applyGain(buffer, numSamples); // modAmount = 5 
 
 	if (parameter.isSmoothing())
 		for (int smp = 0; smp < numSamples; ++smp)

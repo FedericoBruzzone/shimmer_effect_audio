@@ -243,6 +243,12 @@ void PitchShifter::PitchShifterModBase::setShift(float newValue)
 	setParameter();
 }
 
+void PitchShifter::PitchShifterModBase::setActive(float newValue)
+{
+	active = newValue;
+	setParameter();
+}
+
 void PitchShifter::PitchShifterModBase::setParameter()
 {
 	auto aus = active * shift;
@@ -252,13 +258,5 @@ void PitchShifter::PitchShifterModBase::setParameter()
 	timeAdapter.setParameter(0.0f);
 	delay.setFeedback(0.0f);
 	timeAdapter.setModAmount(aus);
-
 	delay.setMaxTime(1.0f);
-
-}
-
-void PitchShifter::PitchShifterModBase::setActive(float newValue)
-{
-	active = newValue ;
-	setParameter();
 }

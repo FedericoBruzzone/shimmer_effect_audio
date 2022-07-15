@@ -9,6 +9,7 @@ void CircularBuffer::prepareToPlay(double sampleRate, int maxNumSamples)
 	initialize();
 	memorySize = static_cast<int>(maxTime * sampleRate) + maxNumSamples; 
 	memory.setSize(2, memorySize);
+	memory.clear();
 }
 
 void CircularBuffer::releaseResources()

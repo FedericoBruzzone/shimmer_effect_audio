@@ -35,7 +35,6 @@ ShimmerAudioProcessor::ShimmerAudioProcessor()
     delay.setTime(DEFAULT_SHIMMER_DELAY_TIME);
     delay.setFeedback(DEFAULT_SHIMMER_DELAY_FEEDBACK);
 
-
     //masterReverbParameters.roomSize = DEFAULT_SHIMMER_MASTER_ROOMSIZE;
     //masterReverb.setParameters(masterReverbParameters);
 
@@ -62,7 +61,6 @@ void ShimmerAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBloc
 
     branchReverb.reset();
     //masterReverb.reset();
-
 }
 
 void ShimmerAudioProcessor::releaseResources()
@@ -77,7 +75,6 @@ void ShimmerAudioProcessor::releaseResources()
     delay.releaseResources();
 
     //masterReverb.reset();
-
 }
 
 void ShimmerAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
@@ -126,7 +123,6 @@ void ShimmerAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce
         envelopeOutput[0].set(juce::Decibels::gainToDecibels(buffer.getRMSLevel(0, 0, buffer.getNumSamples())));
         envelopeOutput[1].set(juce::Decibels::gainToDecibels(buffer.getRMSLevel(0, 0, buffer.getNumSamples())));
     }
-    
 }
 
 juce::AudioProcessorEditor* ShimmerAudioProcessor::createEditor()
