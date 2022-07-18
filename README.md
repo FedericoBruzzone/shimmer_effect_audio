@@ -11,16 +11,16 @@
 1. Install [juce framework](https://juce.com/get-juce/download)
 2. Install [Visual studio 2022](https://visualstudio.microsoft.com)
 
-## First step
+### First step
 Now, you can try to open the Projucer.exe and open shimmer.jucer file. If there are no problems, you can run Visual Studio 2022 from the appropriate button at the top-right of Projucer.
 
-## Second step
+### Second step
 
 In the JUCE folder in documents (JUCE/extras/AudioPluginHost), there is juce Host called AudioPluginHost, this allows to test our code without a DAW (Digital Audio Workstation).
 
 You have to open AudioPluginHost.jucer on Projucer and later in Visual Studio 2022, and compile it in debug mode.
 
-## Third step
+### Third step
 
 Now, you can re-open the "Shimmer" project, and pressing with the right button on "Shimmer_VST3" and in debug menu you can set the path of your AudioPluginHost (.\Documents\JUCE\extras\AudioPluginHost\Builds\VisualStudio2022\x64\Debug\App\AudioPluginHost.exw) on command space.
 
