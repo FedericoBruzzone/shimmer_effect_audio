@@ -1,6 +1,6 @@
 # Shimmer VST3 - AudioPlugin
 
-<img src="Shimmer_VST3.png" width="600" heigth="600"/>
+<img src="./Docs/Shimmer_VST3.png" width="600" heigth="600"/>
 
 # Introduction
 "Shimmer" audio effect, creates an exceptional string-like reverberation by involving enhanced harmonics of the input signal in the reverberation process. In a typical "Shimmer" effect system, different harmonics obtained by real-time pitch shifting are mixed with the original input signal in a reverberator.
@@ -34,9 +34,5 @@ If you find problems with the source code or configuration, please contact me at
 
 If this is your first time using juce, i understand that the configuration of this project is not easy.
 
-
-
-
-
 # Full screen GUI
-![Shimmer_VST3](Shimmer_VST3.png)
+![Shimmer_VST3](./Docs/Shimmer_VST3.png)
