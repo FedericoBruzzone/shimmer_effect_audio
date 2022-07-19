@@ -1,5 +1,12 @@
 # Shimmer VST3 - AudioPlugin
 
+![Build Status](https://github.com/FedericoBruzzone/shimmer_audio_plugin/workflows/Test/badge.svg)
+
+
+[![JUCE](https://img.shields.io/badge/framework-JUCE-green)](https://juce.com)
+[![stability-stable](https://img.shields.io/badge/stability-stable-green.svg)](https://github.com/emersion/stability-badges#stable)
+
+
 <img src="./Docs/Shimmer_VST3.png" width="600" heigth="600"/>
 
 # Introduction
