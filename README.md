@@ -1,6 +1,6 @@
 # Shimmer VST3 - Effect Audio
 
-[![Make with](https://img.shields.io/badge/Made%20with-C%2B%2B-orange)]()
+[![Make with](https://img.shields.io/badge/Made%20with-C%2B%2B-orange)](https://en.wikipedia.org/wiki/C%2B%2B)
 [![JUCE](https://img.shields.io/badge/framework-JUCE-green)](https://juce.com)
 [![stability-stable](https://img.shields.io/badge/stability-stable-green.svg)](https://github.com/emersion/stability-badges#stable)
 
@@ -12,9 +12,13 @@
 
 "Shimmer" is an algorithmic reverb designed for BIG sounds. This audio effect compiles with the world standard VST3.
 
+---
+
 # Setup 
 1. Install [juce framework](https://juce.com/get-juce/download)
 2. Install [Visual studio 2022](https://visualstudio.microsoft.com)
+
+---
 
 ### First step
 Now, you can try to open the Projucer.exe and open shimmer.jucer file. If there are no problems, you can run Visual Studio 2022 from the appropriate button at the top-right of Projucer.
