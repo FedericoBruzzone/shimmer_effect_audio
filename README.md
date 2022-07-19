@@ -1,4 +1,4 @@
-# Shimmer VST3 - AudioPlugin
+# Shimmer VST3 - Effect Audio
 
 [![Make with](https://img.shields.io/badge/Made%20with-C%2B%2B-orange)]()
 [![JUCE](https://img.shields.io/badge/framework-JUCE-green)](https://juce.com)
