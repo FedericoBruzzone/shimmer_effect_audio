@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/FedericoBruzzone/shimmer_effect_audio/edit/master/License)
 [![Make with](https://img.shields.io/badge/Made%20with-C%2B%2B-orange)](https://en.wikipedia.org/wiki/C%2B%2B)
-[![JUCE](https://img.shields.io/badge/framework-JUCE-green)](https://juce.com)
+[![JUCE](https://img.shields.io/badge/JUCE-v6.1.6-green)](https://juce.com)
 [![stability-stable](https://img.shields.io/badge/stability-stable-green.svg)](https://github.com/emersion/stability-badges#stable)
 
 
